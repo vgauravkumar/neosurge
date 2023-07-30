@@ -1,0 +1,88 @@
+7/30/2023, 8:43:47 PM [INFO] Server starting on port 3000
+7/30/2023, 8:44:25 PM [INFO] Server starting on port 3000
+7/30/2023, 8:44:27 PM [INFO] Server starting on port 3000
+7/30/2023, 8:44:37 PM [DEBUG] Server starting on port 3000
+7/30/2023, 8:45:24 PM [INFO] Server starting on port 3000
+7/30/2023, 8:46:16 PM [INFO] Server starting on port 3000
+7/30/2023, 8:46:35 PM [INFO] Server starting on port 3000
+7/30/2023, 8:46:56 PM [INFO] Server starting on port 3000
+7/30/2023, 9:21:24 PM [INFO] Server starting on port 3000
+7/30/2023, 9:22:27 PM [INFO] Server starting on port 3000
+7/30/2023, 9:22:31 PM [INFO] [::1] [NULL]: [POST] /api/login
+7/30/2023, 9:22:31 PM [INFO] DBC: 0
+7/30/2023, 9:22:31 PM [ERROR] ReferenceError: loginValidator is not defined
+    at login (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\src\controller\authenticationModule\login.js:9:23)
+    at Layer.handle [as handle_request] (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\express\lib\router\index.js:47:12)
+7/30/2023, 9:22:49 PM [INFO] Server starting on port 3000
+7/30/2023, 9:22:51 PM [INFO] [::1] [NULL]: [POST] /api/login
+7/30/2023, 9:22:51 PM [INFO] DBC: 0
+7/30/2023, 9:23:03 PM [INFO] [::1] [NULL]: [POST] /api/login
+7/30/2023, 9:23:03 PM [INFO] DBC: 0
+7/30/2023, 9:23:03 PM [ERROR] Error: Unknown column 'undefined' in 'where clause'
+    at Packet.asError (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\packets\packet.js:728:17)
+    at Query.execute (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\commands\command.js:29:26)
+    at Connection.handlePacket (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\connection.js:478:34)
+    at PacketParser.onPacket (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\connection.js:97:12)
+    at PacketParser.executeStart (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\connection.js:104:25)
+    at Socket.emit (node:events:513:28)
+    at addChunk (node:internal/streams/readable:315:12)
+    at readableAddChunk (node:internal/streams/readable:289:9)
+    at Socket.Readable.push (node:internal/streams/readable:228:10)
+7/30/2023, 9:23:36 PM [INFO] Server starting on port 3000
+7/30/2023, 9:23:38 PM [INFO] [::1] [NULL]: [POST] /api/login
+7/30/2023, 9:23:38 PM [INFO] DBC: 0
+7/30/2023, 9:23:38 PM [DEBUG] [object Promise]
+7/30/2023, 9:23:39 PM [ERROR] Error: Unknown column 'undefined' in 'where clause'
+    at Packet.asError (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\packets\packet.js:728:17)
+    at Query.execute (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\commands\command.js:29:26)
+    at Connection.handlePacket (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\connection.js:478:34)
+    at PacketParser.onPacket (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\connection.js:97:12)
+    at PacketParser.executeStart (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\connection.js:104:25)
+    at Socket.emit (node:events:513:28)
+    at addChunk (node:internal/streams/readable:315:12)
+    at readableAddChunk (node:internal/streams/readable:289:9)
+    at Socket.Readable.push (node:internal/streams/readable:228:10)
+7/30/2023, 9:23:49 PM [INFO] Server starting on port 3000
+7/30/2023, 9:23:52 PM [INFO] [::1] [NULL]: [POST] /api/login
+7/30/2023, 9:23:52 PM [INFO] DBC: 0
+7/30/2023, 9:23:52 PM [ERROR] Error: Unknown column 'undefined' in 'where clause'
+    at Packet.asError (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\packets\packet.js:728:17)
+    at Query.execute (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\commands\command.js:29:26)
+    at Connection.handlePacket (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\connection.js:478:34)
+    at PacketParser.onPacket (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\connection.js:97:12)
+    at PacketParser.executeStart (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (C:\Users\KIIT\Documents\My Intrests\2023\Boilerplate\node_modules\mysql2\lib\connection.js:104:25)
+    at Socket.emit (node:events:513:28)
+    at addChunk (node:internal/streams/readable:315:12)
+    at readableAddChunk (node:internal/streams/readable:289:9)
+    at Socket.Readable.push (node:internal/streams/readable:228:10)
+7/30/2023, 9:24:02 PM [INFO] Server starting on port 3000
+7/30/2023, 9:24:06 PM [INFO] Server starting on port 3000
+7/30/2023, 9:24:09 PM [INFO] [::1] [NULL]: [POST] /api/login
+7/30/2023, 9:24:09 PM [INFO] DBC: 0
+7/30/2023, 9:24:57 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/user/userDetail
+7/30/2023, 9:24:57 PM [INFO] DBC: 1
+7/30/2023, 9:25:24 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/dashboard/userDetail
+7/30/2023, 9:25:24 PM [INFO] DBC: 1
+7/30/2023, 9:25:30 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/dashboard/userDetail
+7/30/2023, 9:25:30 PM [INFO] DBC: 1
+7/30/2023, 9:25:41 PM [INFO] Server starting on port 3000
+7/30/2023, 9:25:44 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/dashboard/userDetail
+7/30/2023, 9:25:44 PM [INFO] DBC: 0
+7/30/2023, 9:27:37 PM [INFO] Server starting on port 3000
+7/30/2023, 9:27:40 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/dashboard/userDetail
+7/30/2023, 9:27:40 PM [INFO] DBC: 0
+7/30/2023, 9:27:54 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+7/30/2023, 9:27:54 PM [INFO] DBC: 0
+7/30/2023, 9:30:59 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+7/30/2023, 9:30:59 PM [INFO] DBC: 0
