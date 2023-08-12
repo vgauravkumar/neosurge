@@ -86,3 +86,66 @@
 7/30/2023, 9:27:54 PM [INFO] DBC: 0
 7/30/2023, 9:30:59 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
 7/30/2023, 9:30:59 PM [INFO] DBC: 0
+8/1/2023, 7:47:45 PM [INFO] Server starting on port 3000
+8/1/2023, 7:48:04 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/1/2023, 7:48:04 PM [INFO] DBC: 0
+8/1/2023, 7:48:14 PM [INFO] [::1] [eyJhbGciOi..]: [GET] /api/userDetail
+8/1/2023, 7:48:14 PM [INFO] DBC: 0
+8/1/2023, 7:48:18 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/1/2023, 7:48:18 PM [INFO] DBC: 0
+8/1/2023, 7:51:09 PM [INFO] Server starting on port 3000
+8/1/2023, 7:56:18 PM [INFO] Server starting on port 3000
+8/1/2023, 7:56:24 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/1/2023, 7:56:24 PM [INFO] DBC: 0
+8/1/2023, 7:56:45 PM [INFO] [::1] [NULL]: [POST] /api/login
+8/1/2023, 7:56:45 PM [INFO] DBC: 0
+8/1/2023, 7:57:27 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/1/2023, 7:57:27 PM [INFO] DBC: 1
+8/1/2023, 7:57:32 PM [INFO] [::1] [eyJhbGciOi..]: [GET] /api/userDetail
+8/1/2023, 7:57:32 PM [INFO] DBC: 1
+8/1/2023, 7:57:44 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/1/2023, 7:57:44 PM [INFO] DBC: 1
+8/1/2023, 7:58:35 PM [INFO] Server starting on port 3000
+8/1/2023, 7:58:44 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/1/2023, 7:58:44 PM [INFO] DBC: 0
+8/1/2023, 7:58:44 PM [INFO] 1
+8/1/2023, 7:58:51 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/1/2023, 7:58:51 PM [INFO] DBC: 0
+8/1/2023, 7:58:51 PM [INFO] 1
+8/1/2023, 7:58:59 PM [INFO] Server starting on port 3000
+8/1/2023, 7:59:12 PM [INFO] Server starting on port 3000
+8/1/2023, 7:59:28 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/1/2023, 7:59:28 PM [INFO] DBC: 0
+8/1/2023, 8:08:14 PM [INFO] Server starting on port 3000
+8/1/2023, 8:08:23 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/1/2023, 8:08:23 PM [INFO] DBC: 0
+8/1/2023, 8:08:39 PM [INFO] Server starting on port 3000
+8/4/2023, 6:49:30 AM [INFO] Server starting on port 3000
+8/4/2023, 6:52:50 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/4/2023, 6:52:50 AM [INFO] DBC: 0
+8/4/2023, 10:16:36 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/4/2023, 10:16:36 AM [INFO] DBC: 0
+8/12/2023, 9:03:30 PM [INFO] Server starting on port 3000
+8/12/2023, 9:23:19 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/12/2023, 9:23:19 PM [INFO] DBC: 0
+8/12/2023, 9:23:54 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/12/2023, 9:23:54 PM [INFO] DBC: 0
+8/12/2023, 9:24:15 PM [INFO] Server starting on port 3000
+8/12/2023, 9:24:17 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/12/2023, 9:24:17 PM [INFO] DBC: 0
+8/12/2023, 9:24:36 PM [INFO] Server starting on port 3000
+8/12/2023, 9:24:40 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/12/2023, 9:24:40 PM [INFO] DBC: 0
+8/12/2023, 9:24:50 PM [INFO] Server starting on port 3000
+8/12/2023, 9:24:52 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/12/2023, 9:24:52 PM [INFO] DBC: 0
+8/12/2023, 9:33:19 PM [INFO] Server starting on port 3000
+8/12/2023, 9:34:32 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/12/2023, 9:34:32 PM [INFO] DBC: 0
+8/12/2023, 9:34:37 PM [INFO] [::1] [NULL]: [POST] /api/login
+8/12/2023, 9:34:37 PM [INFO] DBC: 0
+8/12/2023, 9:34:54 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/12/2023, 9:34:54 PM [INFO] DBC: 1
+8/12/2023, 9:35:04 PM [INFO] Server starting on port 3000
+8/12/2023, 9:35:10 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+8/12/2023, 9:35:10 PM [INFO] DBC: 0

@@ -5,7 +5,7 @@ const path = require('path');
 const logger = require('../../services/logger');
 const { Database } = require('../../services/db');
 
-const pathToKey = path.join(__dirname, '..', 'id_rsa_pub.pem');
+const pathToKey = path.join(__dirname, 'id_rsa_pub.pem');
 const PUB_KEY = fs.readFileSync(pathToKey, 'utf8');
 
 // At a minimum, you must pass the `jwtFromRequest` and `secretOrKey` properties
@@ -27,7 +27,7 @@ module.exports = async (passport) => {
             const DB = new Database();
             const getUser = await DB.query(`SELECT user_id, email_id, username FROM user_login WHERE user_id = "${jwt_payload.sub}"`);
             DB.close();
-            if (getUser.length && getUser[0].is_active)
+            if (getUser.length)
                 return done(null, getUser[0]);
             else
                 return done(null, false);

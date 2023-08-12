@@ -3,7 +3,7 @@ const { getUserById } = require('../../helper/authenticationModule/auth');
 
 const userDetail = async (req, res) => {
     try {
-        const userInfo = getUserById(req.user.user_id);
+        const userInfo = await getUserById(req.user.user_id);
         return res.status(200).json({
             success: true,
             data: userInfo
