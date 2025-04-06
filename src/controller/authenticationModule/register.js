@@ -3,6 +3,7 @@ const logger = require('../../services/logger');
 const bcrypt = require('bcrypt');
 const { registerValidator } = require('../../validation/authenticationModule/register');
 const { getUserByEmail } = require('../../helper/authenticationModule/auth');
+const { generateOTP } = require('../../helper/misc/random');
 
 const register = async (req, res) => {
     try {
@@ -15,7 +16,7 @@ const register = async (req, res) => {
             });
         }
         // buisness logic
-        const { username, email_id, password } = req.body;
+        const { name, email_id, password } = req.body;
         const userExists = await getUserByEmail(email_id);
         if (userExists) {
             return res.status(400).json({
@@ -25,7 +26,9 @@ const register = async (req, res) => {
         }
         const DB = new Database();
         const hash = await bcrypt.hash(password, 10);
-        const insertUserQuery = await DB.query(`INSERT INTO user_login (username, email_id) VALUES ("${username}", "${email_id}");`);
+        const otp = generateOTP();
+        console.log("OTP sent to the user:", otp);
+        const insertUserQuery = await DB.query(`INSERT INTO user_login (name, email_id, otp) VALUES ("${name}", "${email_id}", ${otp});`);
         if (!insertUserQuery.affectedRows) {
             DB.close();
             return res.status(500).json({

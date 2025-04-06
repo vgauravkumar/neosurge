@@ -9,5 +9,6 @@ router.get('/api', (req, res) => {
 
 router.use('/api', require('./autenticationModule/handleAuthentication'));
 router.use('/api', require('./dashboard/userDetail'));
+router.use('/api', require('./dashboard/expenses'));
 
 module.exports = router;

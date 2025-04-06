@@ -5,8 +5,9 @@
 const Joi = require('joi');
 
 const validate = {
-    username: Joi.string(),
-    email_id: Joi.string().email(),
+    name: Joi.string().max(150),
+    email_id: Joi.string().email().max(150),
+    otp: Joi.number().min(100000).max(999999),
     password: Joi.string()
         .min(8) // Minimum password length of 8 characters
         .pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@\\-$!#_])[A-Za-z\\d@$\\-$!#_]{8,}$'))

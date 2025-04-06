@@ -3,6 +3,7 @@ require('dotenv').config('.env');
 const { starterFiles } = require('./src/middleware/starter');
 const logger = require('./src/services/logger');
 const passport = require('passport');
+const nodeSchedule = require('node-schedule');
 
 /* ------------------------ Configuration middlewares ----------------------- */
 const app = express();
@@ -21,6 +22,9 @@ global["DBC"] = 0; // Database connection count
 /* ---------------------------- User middlewares ---------------------------- */
 app.use(starterFiles);
 app.use(require('./src/routes/handler'));
+
+module.exports = { nodeSchedule } ;
+require('./src/services/processes').jobs();
 
 
 // Server listens at this port

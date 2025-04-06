@@ -3,7 +3,7 @@ const validate = require('../standard');
 
 const registerValidator = (obj) => {
     const JoiSchemaBody = Joi.object({
-        username: validate.username.required(),
+        name: validate.name.required(),
         email_id: validate.email_id.required(),
         password: validate.password.required()
     });

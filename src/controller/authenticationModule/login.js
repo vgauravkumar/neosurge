@@ -22,8 +22,15 @@ const login = async (req, res) => {
                 message: "User does not exist"
             });
         }
+        if(!userInfo.is_verified) {
+            return res.status(400).json({
+                success: false,
+                message: "Verify first"
+            });
+        }
         const DB = new Database();
         const userHash = await DB.query(`SELECT hash FROM user_cred WHERE user_id = ${userInfo.user_id};`);
+        logger.info(`Logged in user_id: ${userInfo.user_id}`)
         const isValid = await bcrypt.compare(password, userHash[0].hash);
         if (!isValid) {
             DB.close();
@@ -35,7 +42,7 @@ const login = async (req, res) => {
         const { token } = issueJWT(userInfo.user_id);
         return res.status(200).header('jwt', token).json({
             success: true,
-            message: "Logged in successfully"
+            message: "Logged in successfully as " + userInfo.user_type
         });
     } catch (err) {
         logger.error(err.stack);

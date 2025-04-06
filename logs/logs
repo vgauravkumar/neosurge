@@ -149,3 +149,331 @@
 8/12/2023, 9:35:04 PM [INFO] Server starting on port 3000
 8/12/2023, 9:35:10 PM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
 8/12/2023, 9:35:10 PM [INFO] DBC: 0
+4/6/2025, 9:50:10 AM [INFO] Server starting on port 3000
+4/6/2025, 12:24:51 PM [INFO] [::1] [NULL]: [GET] /
+4/6/2025, 12:24:51 PM [INFO] DBC: 0
+4/6/2025, 12:24:55 PM [INFO] [::1] [NULL]: [GET] /
+4/6/2025, 12:24:55 PM [INFO] DBC: 0
+4/6/2025, 12:25:51 PM [INFO] [::1] [NULL]: [POST] /api/register
+4/6/2025, 12:25:51 PM [INFO] DBC: 0
+4/6/2025, 12:26:33 PM [INFO] [::1] [NULL]: [POST] /api/register
+4/6/2025, 12:26:33 PM [INFO] DBC: 0
+4/6/2025, 12:27:34 PM [INFO] [::1] [NULL]: [POST] /api/register
+4/6/2025, 12:27:34 PM [INFO] DBC: 0
+4/6/2025, 12:27:34 PM [ERROR] Error: Can't add new command when connection is in closed state
+    at Connection._addCommandClosedState (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:164:17)
+    at Connection.end (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:895:26)
+    at Query.onResult (/Users/gaurav/Documents/GitHub/neosurge/src/services/db.js:25:37)
+    at Connection._notifyError (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:244:17)
+    at Connection._handleFatalError (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:183:10)
+    at Connection._handleNetworkError (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:196:10)
+    at Socket.emit (node:events:514:28)
+    at emitErrorNT (node:internal/streams/destroy:151:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+4/6/2025, 1:33:23 PM [INFO] Server starting on port 3000
+4/6/2025, 1:33:25 PM [INFO] Server starting on port 3000
+4/6/2025, 1:38:03 PM [INFO] Server starting on port 3000
+4/6/2025, 1:45:14 PM [INFO] Server starting on port 3000
+4/6/2025, 1:47:44 PM [INFO] Server starting on port 3000
+4/6/2025, 1:49:29 PM [INFO] Server starting on port 3000
+4/6/2025, 1:49:33 PM [INFO] [::1] [NULL]: [POST] /api/register
+4/6/2025, 1:49:33 PM [INFO] DBC: 0
+4/6/2025, 1:49:33 PM [ERROR] TypeError: Cannot read properties of undefined (reading 'required')
+    at registerValidator (/Users/gaurav/Documents/GitHub/neosurge/src/validation/authenticationModule/register.js:6:33)
+    at register (/Users/gaurav/Documents/GitHub/neosurge/src/controller/authenticationModule/register.js:11:30)
+    at Layer.handle [as handle_request] (/Users/gaurav/Documents/GitHub/neosurge/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/gaurav/Documents/GitHub/neosurge/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/Users/gaurav/Documents/GitHub/neosurge/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/Users/gaurav/Documents/GitHub/neosurge/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/gaurav/Documents/GitHub/neosurge/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/gaurav/Documents/GitHub/neosurge/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/gaurav/Documents/GitHub/neosurge/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/gaurav/Documents/GitHub/neosurge/node_modules/express/lib/router/index.js:175:3)
+4/6/2025, 1:49:50 PM [INFO] Server starting on port 3000
+4/6/2025, 1:49:53 PM [INFO] [::1] [NULL]: [POST] /api/register
+4/6/2025, 1:49:53 PM [INFO] DBC: 0
+4/6/2025, 1:49:53 PM [ERROR] TypeError: Cannot read properties of undefined (reading 'required')
+    at registerValidator (/Users/gaurav/Documents/GitHub/neosurge/src/validation/authenticationModule/register.js:6:33)
+    at register (/Users/gaurav/Documents/GitHub/neosurge/src/controller/authenticationModule/register.js:11:30)
+    at Layer.handle [as handle_request] (/Users/gaurav/Documents/GitHub/neosurge/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/gaurav/Documents/GitHub/neosurge/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/Users/gaurav/Documents/GitHub/neosurge/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/Users/gaurav/Documents/GitHub/neosurge/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/gaurav/Documents/GitHub/neosurge/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/gaurav/Documents/GitHub/neosurge/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/gaurav/Documents/GitHub/neosurge/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/gaurav/Documents/GitHub/neosurge/node_modules/express/lib/router/index.js:175:3)
+4/6/2025, 1:50:10 PM [INFO] Server starting on port 3000
+4/6/2025, 1:50:15 PM [INFO] [::1] [NULL]: [POST] /api/register
+4/6/2025, 1:50:15 PM [INFO] DBC: 0
+4/6/2025, 1:50:23 PM [INFO] [::1] [NULL]: [POST] /api/register
+4/6/2025, 1:50:23 PM [INFO] DBC: 0
+4/6/2025, 1:50:23 PM [ERROR] Error: Can't add new command when connection is in closed state
+    at Connection._addCommandClosedState (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:164:17)
+    at Connection.end (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:895:26)
+    at Query.onResult (/Users/gaurav/Documents/GitHub/neosurge/src/services/db.js:25:37)
+    at Connection._notifyError (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:244:17)
+    at Connection._handleFatalError (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:183:10)
+    at Connection._handleNetworkError (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:196:10)
+    at Socket.emit (node:events:514:28)
+    at emitErrorNT (node:internal/streams/destroy:151:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+4/6/2025, 2:10:59 PM [INFO] [::1] [NULL]: [POST] /api/register
+4/6/2025, 2:10:59 PM [INFO] DBC: 0
+4/6/2025, 2:10:59 PM [ERROR] Error: Can't add new command when connection is in closed state
+    at Connection._addCommandClosedState (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:164:17)
+    at Connection.end (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:895:26)
+    at Query.onResult (/Users/gaurav/Documents/GitHub/neosurge/src/services/db.js:25:37)
+    at Connection._notifyError (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:244:17)
+    at Connection._handleFatalError (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:183:10)
+    at Connection._handleNetworkError (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:196:10)
+    at Socket.emit (node:events:514:28)
+    at emitErrorNT (node:internal/streams/destroy:151:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+4/6/2025, 2:11:10 PM [INFO] Server starting on port 3000
+4/6/2025, 2:11:12 PM [INFO] [::1] [NULL]: [POST] /api/register
+4/6/2025, 2:11:12 PM [INFO] DBC: 0
+4/6/2025, 2:11:59 PM [INFO] Server starting on port 3000
+4/6/2025, 2:12:05 PM [INFO] [::1] [NULL]: [POST] /api/register
+4/6/2025, 2:12:05 PM [INFO] DBC: 0
+4/6/2025, 3:46:16 PM [INFO] Server starting on port 3000
+4/6/2025, 3:46:17 PM [INFO] [::1] [NULL]: [POST] /api/register
+4/6/2025, 3:46:17 PM [INFO] DBC: 0
+4/6/2025, 3:46:38 PM [INFO] [::1] [NULL]: [POST] /api/register
+4/6/2025, 3:46:38 PM [INFO] DBC: 0
+4/6/2025, 3:46:42 PM [INFO] [::1] [NULL]: [POST] /api/register
+4/6/2025, 3:46:42 PM [INFO] DBC: 0
+4/6/2025, 3:49:35 PM [INFO] [::1] [NULL]: [POST] /api/register
+4/6/2025, 3:49:35 PM [INFO] DBC: 0
+4/6/2025, 3:50:18 PM [INFO] [::1] [NULL]: [POST] /api/login
+4/6/2025, 3:50:18 PM [INFO] DBC: 0
+4/6/2025, 3:50:25 PM [INFO] [::1] [NULL]: [POST] /api/login
+4/6/2025, 3:50:25 PM [INFO] DBC: 0
+4/6/2025, 3:51:40 PM [INFO] Server starting on port 3000
+4/6/2025, 3:51:42 PM [INFO] [::1] [NULL]: [POST] /api/login
+4/6/2025, 3:51:42 PM [INFO] DBC: 0
+4/6/2025, 3:52:16 PM [INFO] Server starting on port 3000
+4/6/2025, 3:52:17 PM [INFO] [::1] [NULL]: [POST] /api/login
+4/6/2025, 3:52:17 PM [INFO] DBC: 0
+4/6/2025, 3:52:28 PM [INFO] Server starting on port 3000
+4/6/2025, 3:53:51 PM [INFO] Server starting on port 3000
+4/6/2025, 3:55:22 PM [INFO] Server starting on port 3000
+4/6/2025, 3:57:01 PM [INFO] Server starting on port 3000
+4/6/2025, 3:57:13 PM [INFO] Server starting on port 3000
+4/6/2025, 3:58:18 PM [INFO] Server starting on port 3000
+4/6/2025, 3:59:32 PM [INFO] Server starting on port 3000
+4/6/2025, 4:00:01 PM [INFO] Server starting on port 3000
+4/6/2025, 4:00:10 PM [INFO] Server starting on port 3000
+4/6/2025, 4:00:30 PM [INFO] Server starting on port 3000
+4/6/2025, 4:04:43 PM [INFO] Server starting on port 3000
+4/6/2025, 4:04:50 PM [INFO] Server starting on port 3000
+4/6/2025, 4:05:00 PM [INFO] [::1] [NULL]: [POST] /api/login
+4/6/2025, 4:05:00 PM [INFO] DBC: 0
+4/6/2025, 4:05:07 PM [INFO] [::1] [NULL]: [POST] /api/register
+4/6/2025, 4:05:07 PM [INFO] DBC: 0
+4/6/2025, 4:05:52 PM [INFO] [::1] [NULL]: [POST] /api/verify
+4/6/2025, 4:05:52 PM [INFO] DBC: 0
+4/6/2025, 4:05:54 PM [ERROR] ReferenceError: DB is not defined
+    at verify (/Users/gaurav/Documents/GitHub/neosurge/src/controller/authenticationModule/verify.js:20:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+4/6/2025, 4:06:17 PM [INFO] Server starting on port 3000
+4/6/2025, 4:06:18 PM [INFO] [::1] [NULL]: [POST] /api/verify
+4/6/2025, 4:06:18 PM [INFO] DBC: 0
+4/6/2025, 4:07:32 PM [INFO] [::1] [NULL]: [POST] /api/login
+4/6/2025, 4:07:32 PM [INFO] DBC: 0
+4/6/2025, 4:07:45 PM [INFO] [::1] [NULL]: [POST] /api/login
+4/6/2025, 4:07:45 PM [INFO] DBC: 1
+4/6/2025, 4:07:55 PM [INFO] [::1] [NULL]: [POST] /api/login
+4/6/2025, 4:07:55 PM [INFO] DBC: 1
+4/6/2025, 4:08:16 PM [INFO] [::1] [NULL]: [POST] /api/login
+4/6/2025, 4:08:16 PM [INFO] DBC: 2
+4/6/2025, 4:08:26 PM [INFO] [::1] [NULL]: [POST] /api/login
+4/6/2025, 4:08:26 PM [INFO] DBC: 2
+4/6/2025, 4:08:40 PM [INFO] [::1] [NULL]: [POST] /api/register
+4/6/2025, 4:08:40 PM [INFO] DBC: 3
+4/6/2025, 4:08:51 PM [INFO] [::1] [NULL]: [POST] /api/login
+4/6/2025, 4:08:51 PM [INFO] DBC: 3
+4/6/2025, 4:09:32 PM [INFO] [::1] [NULL]: [POST] /api/verify
+4/6/2025, 4:09:32 PM [INFO] DBC: 3
+4/6/2025, 4:09:59 PM [INFO] [::1] [NULL]: [POST] /api/verify
+4/6/2025, 4:09:59 PM [INFO] DBC: 3
+4/6/2025, 4:10:13 PM [INFO] [::1] [NULL]: [POST] /api/login
+4/6/2025, 4:10:13 PM [INFO] DBC: 3
+4/6/2025, 4:11:31 PM [INFO] Server starting on port 3000
+4/6/2025, 4:11:33 PM [INFO] [::1] [NULL]: [POST] /api/login
+4/6/2025, 4:11:33 PM [INFO] DBC: 0
+4/6/2025, 4:23:08 PM [INFO] Server starting on port 3000
+4/6/2025, 4:25:32 PM [INFO] Server starting on port 3000
+4/6/2025, 4:25:40 PM [INFO] [::1] [NULL]: [POST] /api/login
+4/6/2025, 4:25:40 PM [INFO] DBC: 0
+4/6/2025, 4:25:59 PM [INFO] Server starting on port 3000
+4/6/2025, 4:26:00 PM [INFO] [::1] [NULL]: [POST] /api/login
+4/6/2025, 4:26:00 PM [INFO] DBC: 0
+4/6/2025, 4:27:42 PM [INFO] Server starting on port 3000
+4/6/2025, 4:27:45 PM [INFO] [::1] [NULL]: [POST] /api/login
+4/6/2025, 4:27:45 PM [INFO] DBC: 0
+4/6/2025, 4:27:49 PM [INFO] Logged in user_id: 6
+4/7/2025, 12:16:24 AM [INFO] Server starting on port 3000
+4/7/2025, 2:00:18 AM [INFO] Server starting on port 3000
+4/7/2025, 2:01:23 AM [INFO] Server starting on port 3000
+4/7/2025, 2:02:05 AM [INFO] Server starting on port 3000
+4/7/2025, 2:02:12 AM [INFO] Server starting on port 3000
+4/7/2025, 2:03:35 AM [INFO] Server starting on port 3000
+4/7/2025, 2:04:58 AM [INFO] [::1] [NULL]: [GET] /api/userDetail
+4/7/2025, 2:04:58 AM [INFO] DBC: 0
+4/7/2025, 2:05:11 AM [INFO] [::1] [NULL]: [POST] /api/login
+4/7/2025, 2:05:11 AM [INFO] DBC: 0
+4/7/2025, 2:05:15 AM [INFO] Logged in user_id: 6
+4/7/2025, 2:06:13 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+4/7/2025, 2:06:13 AM [INFO] DBC: 1
+4/7/2025, 2:06:24 AM [INFO] Server starting on port 3000
+4/7/2025, 2:06:35 AM [INFO] Server starting on port 3000
+4/7/2025, 2:06:37 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+4/7/2025, 2:06:37 AM [INFO] DBC: 0
+4/7/2025, 2:06:57 AM [INFO] Server starting on port 3000
+4/7/2025, 2:07:00 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+4/7/2025, 2:07:00 AM [INFO] DBC: 0
+4/7/2025, 2:08:14 AM [INFO] Server starting on port 3000
+4/7/2025, 2:08:16 AM [INFO] Server starting on port 3000
+4/7/2025, 2:09:18 AM [INFO] Server starting on port 3000
+4/7/2025, 2:09:22 AM [INFO] Server starting on port 3000
+4/7/2025, 2:09:40 AM [INFO] Server starting on port 3000
+4/7/2025, 2:10:07 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail
+4/7/2025, 2:10:07 AM [INFO] DBC: 0
+4/7/2025, 2:10:50 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/allUserDetail
+4/7/2025, 2:10:50 AM [INFO] DBC: 0
+4/7/2025, 2:10:53 AM [INFO] Server starting on port 3000
+4/7/2025, 2:10:55 AM [INFO] Server starting on port 3000
+4/7/2025, 2:10:58 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/allUserDetail
+4/7/2025, 2:10:58 AM [INFO] DBC: 0
+4/7/2025, 2:11:51 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/allUserDetail
+4/7/2025, 2:11:51 AM [INFO] DBC: 0
+4/7/2025, 2:12:50 AM [INFO] Server starting on port 3000
+4/7/2025, 2:18:23 AM [INFO] Server starting on port 3000
+4/7/2025, 2:18:32 AM [INFO] Server starting on port 3000
+4/7/2025, 2:18:57 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/expenses
+4/7/2025, 2:18:57 AM [INFO] DBC: 0
+4/7/2025, 2:19:06 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/expenses
+4/7/2025, 2:19:06 AM [INFO] DBC: 0
+4/7/2025, 2:20:04 AM [INFO] Server starting on port 3000
+4/7/2025, 2:21:41 AM [INFO] Server starting on port 3000
+4/7/2025, 2:29:30 AM [INFO] Server starting on port 3000
+4/7/2025, 2:32:02 AM [INFO] Server starting on port 3000
+4/7/2025, 2:32:05 AM [INFO] Server starting on port 3000
+4/7/2025, 2:43:38 AM [INFO] Server starting on port 3000
+4/7/2025, 2:44:48 AM [INFO] [::1] [Bearer eyJ..]: [POST] /api/expenses
+4/7/2025, 2:44:48 AM [INFO] DBC: 0
+4/7/2025, 2:59:51 AM [INFO] [::1] [Bearer eyJ..]: [POST] /api/expenses
+4/7/2025, 2:59:51 AM [INFO] DBC: 0
+4/7/2025, 3:01:33 AM [INFO] Server starting on port 3000
+4/7/2025, 3:02:02 AM [INFO] [::1] [Bearer eyJ..]: [POST] /api/expenses
+4/7/2025, 3:02:02 AM [INFO] DBC: 0
+4/7/2025, 3:11:20 AM [INFO] Server starting on port 3000
+4/7/2025, 3:11:23 AM [INFO] Server starting on port 3000
+4/7/2025, 3:12:58 AM [INFO] [::1] [Bearer eyJ..]: [PUT] /api/expenses
+4/7/2025, 3:12:58 AM [INFO] DBC: 0
+4/7/2025, 3:13:01 AM [ERROR] TypeError: oldDate.slice is not a function
+    at putExpense (/Users/gaurav/Documents/GitHub/neosurge/src/controller/dashboard/expenses.js:146:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+4/7/2025, 3:15:10 AM [INFO] Server starting on port 3000
+4/7/2025, 3:15:17 AM [INFO] [::1] [Bearer eyJ..]: [PUT] /api/expenses
+4/7/2025, 3:15:17 AM [INFO] DBC: 0
+4/7/2025, 3:15:21 AM [ERROR] TypeError: oldDate.slice is not a function
+    at putExpense (/Users/gaurav/Documents/GitHub/neosurge/src/controller/dashboard/expenses.js:148:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+4/7/2025, 3:19:42 AM [INFO] Server starting on port 3000
+4/7/2025, 3:19:47 AM [INFO] [::1] [Bearer eyJ..]: [PUT] /api/expenses
+4/7/2025, 3:19:47 AM [INFO] DBC: 0
+4/7/2025, 3:21:34 AM [INFO] [::1] [Bearer eyJ..]: [PUT] /api/expenses
+4/7/2025, 3:21:34 AM [INFO] DBC: 0
+4/7/2025, 3:23:08 AM [INFO] Server starting on port 3000
+4/7/2025, 3:23:12 AM [INFO] Server starting on port 3000
+4/7/2025, 3:24:01 AM [INFO] Server starting on port 3000
+4/7/2025, 3:24:42 AM [INFO] [::1] [Bearer eyJ..]: [DELETE] /api/expenses
+4/7/2025, 3:24:42 AM [INFO] DBC: 0
+4/7/2025, 3:33:04 AM [INFO] [::1] [Bearer eyJ..]: [POST] /api/expenses
+4/7/2025, 3:33:04 AM [INFO] DBC: 0
+4/7/2025, 3:37:20 AM [INFO] Server starting on port 3000
+4/7/2025, 3:37:21 AM [INFO] Server starting on port 3000
+4/7/2025, 3:37:47 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/summary
+4/7/2025, 3:37:47 AM [INFO] DBC: 0
+4/7/2025, 3:37:50 AM [ERROR] Error: Table 'sql12771583.category' doesn't exist
+    at Packet.asError (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/packets/packet.js:728:17)
+    at Query.execute (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/commands/command.js:29:26)
+    at Connection.handlePacket (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:478:34)
+    at PacketParser.onPacket (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:97:12)
+    at PacketParser.executeStart (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.<anonymous> (/Users/gaurav/Documents/GitHub/neosurge/node_modules/mysql2/lib/connection.js:104:25)
+    at Socket.emit (node:events:514:28)
+    at addChunk (node:internal/streams/readable:324:12)
+    at readableAddChunk (node:internal/streams/readable:297:9)
+    at Readable.push (node:internal/streams/readable:234:10)
+4/7/2025, 3:40:49 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/summary
+4/7/2025, 3:40:49 AM [INFO] DBC: 0
+4/7/2025, 3:43:04 AM [INFO] Server starting on port 3000
+4/7/2025, 3:56:30 AM [INFO] Server starting on port 3000
+4/7/2025, 3:56:50 AM [INFO] Server starting on port 3000
+4/7/2025, 3:57:08 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/score
+4/7/2025, 3:57:08 AM [INFO] DBC: 0
+4/7/2025, 4:12:38 AM [INFO] Server starting on port 3000
+4/7/2025, 4:13:18 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/score
+4/7/2025, 4:13:18 AM [INFO] DBC: 0
+4/7/2025, 4:15:51 AM [INFO] Server starting on port 3000
+4/7/2025, 4:15:54 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/score
+4/7/2025, 4:15:54 AM [INFO] DBC: 0
+4/7/2025, 4:23:38 AM [INFO] Server starting on port 3000
+4/7/2025, 4:24:36 AM [INFO] Server starting on port 3000
+4/7/2025, 4:31:26 AM [INFO] Server starting on port 3000
+4/7/2025, 4:31:29 AM [INFO] Server starting on port 3000
+4/7/2025, 4:36:34 AM [INFO] Server starting on port 3000
+4/7/2025, 4:37:06 AM [INFO] Server starting on port 3000
+4/7/2025, 4:37:09 AM [INFO] Server starting on port 3000
+4/7/2025, 4:38:41 AM [INFO] Server starting on port 3000
+4/7/2025, 4:38:54 AM [INFO] Server starting on port 3000
+4/7/2025, 4:39:17 AM [INFO] Server starting on port 3000
+4/7/2025, 4:44:36 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/score
+4/7/2025, 4:44:36 AM [INFO] DBC: 0
+4/7/2025, 4:44:55 AM [INFO] Server starting on port 3000
+4/7/2025, 4:44:58 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/score - [object Object]
+4/7/2025, 4:44:58 AM [INFO] DBC: 0
+4/7/2025, 4:45:32 AM [INFO] Server starting on port 3000
+4/7/2025, 4:45:36 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/score - [object Object]
+4/7/2025, 4:45:36 AM [INFO] DBC: 0
+4/7/2025, 4:46:03 AM [INFO] Server starting on port 3000
+4/7/2025, 4:46:05 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/score - [object Object]
+4/7/2025, 4:46:05 AM [INFO] DBC: 0
+4/7/2025, 4:46:09 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/score - [object Object]
+4/7/2025, 4:46:09 AM [INFO] DBC: 0
+4/7/2025, 4:47:04 AM [INFO] Server starting on port 3000
+4/7/2025, 4:47:07 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/score - [object Object]
+4/7/2025, 4:47:07 AM [INFO] DBC: 0
+4/7/2025, 4:47:31 AM [INFO] Server starting on port 3000
+4/7/2025, 4:47:35 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/score - [object Object]
+4/7/2025, 4:47:35 AM [INFO] DBC: 0
+4/7/2025, 4:47:43 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/score - [object Object]
+4/7/2025, 4:47:43 AM [INFO] DBC: 0
+4/7/2025, 4:48:35 AM [INFO] Server starting on port 3000
+4/7/2025, 4:48:37 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/score - {}
+4/7/2025, 4:48:37 AM [INFO] DBC: 0
+4/7/2025, 4:48:44 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/score - {}
+4/7/2025, 4:48:44 AM [INFO] DBC: 0
+4/7/2025, 4:48:55 AM [INFO] [::1] [NULL]: [POST] /api/login
+4/7/2025, 4:48:55 AM [INFO] DBC: 0
+4/7/2025, 4:48:59 AM [INFO] Logged in user_id: 6
+4/7/2025, 4:49:21 AM [INFO] [::1] [NULL]: [POST] /api/login
+4/7/2025, 4:49:21 AM [INFO] DBC: 1
+4/7/2025, 4:49:25 AM [INFO] Logged in user_id: 6
+4/7/2025, 4:49:51 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/userDetail - {"email_id":"xikob612211111@noroasis.com","otp":808394}
+4/7/2025, 4:49:51 AM [INFO] DBC: 2
+4/7/2025, 4:52:41 AM [INFO] Server starting on port 3000
+4/7/2025, 4:52:46 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/expenses - [object Object]}
+4/7/2025, 4:52:46 AM [INFO] DBC: 0
+4/7/2025, 4:53:10 AM [INFO] Server starting on port 3000
+4/7/2025, 4:53:21 AM [INFO] [::1] [Bearer eyJ..]: [PATCH] /api/expenses - [object Object]}
+4/7/2025, 4:53:21 AM [INFO] DBC: 0
+4/7/2025, 4:53:34 AM [INFO] Server starting on port 3000
+4/7/2025, 4:53:36 AM [INFO] [::1] [Bearer eyJ..]: [PATCH] /api/expenses - {"amount":1250.75,"notes":"Bus ride to airport","date":"2025-04-07"}}
+4/7/2025, 4:53:36 AM [INFO] DBC: 0
