@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { getExpenses, postExpense, putExpense, deleteExpense, getBudgetSummary, getUserBehaviorScore } = require('../../controller/dashboard/expenses');
+const { getExpenses, postExpense, putExpense, deleteExpense, reverseLastAction } = require('../../controller/dashboard/expenses');
+const { getBudgetSummary, getUserBehaviorScore } = require('../../controller/dashboard/analytics');
 const { userAccessOnly } = require('../../middleware/authorization');
 const passport = require('passport');
 
@@ -10,5 +11,7 @@ router.delete('/expenses', passport.authenticate('jwt', { session: false }), use
 
 router.get('/summary', passport.authenticate('jwt', { session: false }), userAccessOnly, getBudgetSummary);
 router.get('/score', passport.authenticate('jwt', { session: false }), userAccessOnly, getUserBehaviorScore);
+
+router.get('/reverseLastAction', passport.authenticate('jwt', { session: false }), userAccessOnly, reverseLastAction);
 
 module.exports = router;

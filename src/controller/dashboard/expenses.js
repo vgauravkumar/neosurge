@@ -54,18 +54,18 @@ const postExpense = async (req, res) => {
         const { amount, notes, date } = req.body;
         const user_id = req.user.user_id;
         const category_id = getCategoryIdFromNotes(notes);
-
-        // Get first day of the month: YYYY-MM-01
         const month = date.slice(0, 7) + '-01';
 
         const DB = new Database();
 
-        // Insert into expenses
-        await DB.query(
+        // Insert into expenses and get inserted ID
+        const insertResult = await DB.query(
             `INSERT INTO expenses (user_id, category_id, amount, notes, date_of_txn, timestamp)
              VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP);`,
             [user_id, category_id, amount, notes, date]
         );
+
+        const expense_id = insertResult.insertId;
 
         // Check if a monthly_expense record already exists
         const existing = await DB.query(
@@ -75,7 +75,6 @@ const postExpense = async (req, res) => {
         );
 
         if (existing.length > 0) {
-            // Update existing expenditure
             const newExpenditure = parseFloat(existing[0].expenditure) + parseFloat(amount);
             await DB.query(
                 `UPDATE monthly_expense SET expenditure = ?
@@ -83,13 +82,25 @@ const postExpense = async (req, res) => {
                 [newExpenditure, existing[0].id]
             );
         } else {
-            // Insert new monthly_expense record
             await DB.query(
                 `INSERT INTO monthly_expense (user_id, category_id, month, expenditure)
                  VALUES (?, ?, ?, ?);`,
                 [user_id, category_id, month, amount]
             );
         }
+
+        // ✅ Store the action for possible reversal
+        await DB.query(
+            `REPLACE INTO last_user_action (user_id, action_type, payload)
+             VALUES (?, 'add', ?);`,
+            [user_id, JSON.stringify({
+                expense_id,
+                amount,
+                notes,
+                date,
+                category_id
+            })]
+        );
 
         DB.close();
 
@@ -144,7 +155,29 @@ const putExpense = async (req, res) => {
         const oldAmount = parseFloat(oldExpense.amount);
         const oldCategoryId = oldExpense.category_id;
         const oldDate = oldExpense.date_of_txn;
+        const oldNotes = oldExpense.notes;
         const oldMonth = new Date(oldDate).toISOString().slice(0, 7) + '-01';
+
+        // ✅ Log the current state before applying the update
+        await DB.query(
+            `REPLACE INTO last_user_action (user_id, action_type, payload)
+             VALUES (?, 'update', ?);`,
+            [user_id, JSON.stringify({
+                expense_id,
+                old: {
+                    amount: oldAmount,
+                    notes: oldNotes,
+                    date: oldDate,
+                    category_id: oldCategoryId
+                },
+                new: {
+                    amount: newAmount,
+                    notes,
+                    date,
+                    category_id: newCategoryId
+                }
+            })]
+        );
 
         // Update expense row
         await DB.query(
@@ -261,9 +294,9 @@ const deleteExpense = async (req, res) => {
 
         const DB = new Database();
 
-        // Fetch the expense to get amount, date, category_id
+        // Fetch the full expense
         const result = await DB.query(
-            `SELECT amount, category_id, date_of_txn FROM expenses 
+            `SELECT amount, category_id, date_of_txn, notes FROM expenses 
              WHERE id = ? AND user_id = ? LIMIT 1;`,
             [expense_id, user_id]
         );
@@ -276,10 +309,23 @@ const deleteExpense = async (req, res) => {
             });
         }
 
-        const { amount, category_id, date_of_txn } = result[0];
+        const { amount, category_id, date_of_txn, notes } = result[0];
         const month = new Date(date_of_txn).toISOString().slice(0, 7) + '-01';
 
-        // Delete from expenses
+        // ✅ Log the delete action before actually deleting
+        await DB.query(
+            `REPLACE INTO last_user_action (user_id, action_type, payload)
+             VALUES (?, 'delete', ?);`,
+            [user_id, JSON.stringify({
+                expense_id,
+                amount,
+                category_id,
+                date: date_of_txn,
+                notes
+            })]
+        );
+
+        // Delete the expense
         await DB.query(
             `DELETE FROM expenses WHERE id = ? AND user_id = ?;`,
             [expense_id, user_id]
@@ -309,183 +355,136 @@ const deleteExpense = async (req, res) => {
     }
 };
 
-const getBudgetSummary = async (req, res) => {
+const reverseLastAction = async (req, res) => {
     try {
         const user_id = req.user.user_id;
-        const inputMonth = req.query.month; // format: YYYY-MM
-        const month = (inputMonth || new Date().toISOString().slice(0, 7)) + '-01';
-
         const DB = new Database();
 
-        // Get all category budgets for the user
-        const budgetData = await DB.query(
-            `SELECT cb.category_id, cb.budget_amount, c.name as category_name
-             FROM category_budget cb
-             JOIN category c ON c.id = cb.category_id
-             WHERE cb.user_id = ?;`,
+        const lastAction = await DB.query(
+            `SELECT action_type, payload FROM last_user_action
+             WHERE user_id = ? LIMIT 1;`,
             [user_id]
         );
 
-        // Get actual expenses for the month
-        const actualData = await DB.query(
-            `SELECT category_id, expenditure
-             FROM monthly_expense
-             WHERE user_id = ? AND month = ?;`,
-            [user_id, month]
-        );
+        if (lastAction.length === 0) {
+            DB.close();
+            return res.status(404).json({ success: false, message: 'No action to reverse.' });
+        }
 
-        DB.close();
+        const { action_type, payload } = lastAction[0];
+        const data = JSON.parse(payload);
 
-        // Map actual expenses by category_id
-        const actualMap = {};
-        actualData.forEach(item => {
-            actualMap[item.category_id] = parseFloat(item.expenditure);
-        });
+        if (action_type === 'add') {
+            const { amount, notes, date, category_id } = data;
+            const month = date.slice(0, 7) + '-01';
 
-        // Merge budget + actual into final response
-        const summary = budgetData.map(item => ({
-            category_id: item.category_id,
-            category_name: item.category_name,
-            budget: parseFloat(item.budget_amount),
-            actual: actualMap[item.category_id] || 0
-        }));
+            // Delete the last inserted expense matching these details
+            await DB.query(
+                `DELETE FROM expenses
+                 WHERE user_id = ? AND amount = ? AND notes = ? AND date_of_txn = ?
+                 ORDER BY timestamp DESC LIMIT 1;`,
+                [user_id, amount, notes, date]
+            );
 
-        // Split into over and under budget
-        const over_budget = summary.filter(item => item.actual > item.budget);
-        const under_budget = summary.filter(item => item.actual <= item.budget);
+            // Subtract from monthly_expense
+            await DB.query(
+                `UPDATE monthly_expense
+                 SET expenditure = expenditure - ?
+                 WHERE user_id = ? AND category_id = ? AND month = ?;`,
+                [amount, user_id, category_id, month]
+            );
+        }
 
-        return res.status(200).json({
-            success: true,
-            month,
-            summary,
-            over_budget,
-            under_budget
-        });
+        else if (action_type === 'update') {
+            const { expense_id, old, new: newData } = data;
 
-    } catch (err) {
-        logger.error(err.stack);
-        return res.status(500).json({
-            success: false,
-            message: 'Internal server error'
-        });
-    }
-};
+            const oldMonth = old.date.slice(0, 7) + '-01';
+            const newMonth = newData.date.slice(0, 7) + '-01';
 
-const getUserBehaviorScore = async (req, res) => {
-    try {
-        const user_id = req.user.user_id;
-        const inputMonth = req.query.month; // format: YYYY-MM
-        const month = (inputMonth || new Date().toISOString().slice(0, 7)) + '-01';
-        const currentMonth = new Date(month);
-        const daysInMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0).getDate();
+            // Revert the expense
+            await DB.query(
+                `UPDATE expenses
+                 SET amount = ?, notes = ?, category_id = ?, date_of_txn = ?
+                 WHERE id = ? AND user_id = ?;`,
+                [old.amount, old.notes, old.category_id, old.date, expense_id, user_id]
+            );
 
-        const DB = new Database();
-
-        // --- Budget adherence ---
-        const budgets = await DB.query(
-            `SELECT cb.category_id, cb.budget_amount
-             FROM category_budget cb
-             WHERE cb.user_id = ?;`,
-            [user_id]
-        );
-        
-        const actuals = await DB.query(
-            `SELECT category_id, expenditure
-             FROM monthly_expense
-             WHERE user_id = ? AND month = ?;`,
-            [user_id, month]
-        );
-        
-        // Map actual expenses by category_id
-        const actualMap = {};
-        actuals.forEach(a => {
-            actualMap[a.category_id] = parseFloat(a.expenditure);
-        });
-        
-        let adherenceScore = 0;
-        let totalCategories = budgets.length;
-        
-        budgets.forEach(b => {
-            const budget = parseFloat(b.budget_amount);
-            const actual = actualMap[b.category_id] || 0;
-        
-            if (budget === 0) {
-                // If there's no budget but expenses exist, penalize fully
-                adherenceScore += actual === 0 ? 1 : 0;
-            } else if (actual <= budget) {
-                adherenceScore += 1; // Full score
+            // Adjust monthly_expense
+            if (oldMonth === newMonth) {
+                if (old.category_id === newData.category_id) {
+                    const diff = old.amount - newData.amount;
+                    await DB.query(
+                        `UPDATE monthly_expense 
+                         SET expenditure = expenditure + ?
+                         WHERE user_id = ? AND category_id = ? AND month = ?;`,
+                        [diff, user_id, old.category_id, oldMonth]
+                    );
+                } else {
+                    // Reverse category switch in same month
+                    await DB.query(
+                        `UPDATE monthly_expense 
+                         SET expenditure = expenditure + ?
+                         WHERE user_id = ? AND category_id = ? AND month = ?;`,
+                        [old.amount, user_id, old.category_id, oldMonth]
+                    );
+                    await DB.query(
+                        `UPDATE monthly_expense 
+                         SET expenditure = expenditure - ?
+                         WHERE user_id = ? AND category_id = ? AND month = ?;`,
+                        [newData.amount, user_id, newData.category_id, newMonth]
+                    );
+                }
             } else {
-                const penaltyRatio = Math.min((actual - budget) / budget, 1); // Cap at 100%
-                adherenceScore += 1 - penaltyRatio;
+                // Revert across different months
+                await DB.query(
+                    `UPDATE monthly_expense 
+                     SET expenditure = expenditure + ?
+                     WHERE user_id = ? AND category_id = ? AND month = ?;`,
+                    [old.amount, user_id, old.category_id, oldMonth]
+                );
+                await DB.query(
+                    `UPDATE monthly_expense 
+                     SET expenditure = expenditure - ?
+                     WHERE user_id = ? AND category_id = ? AND month = ?;`,
+                    [newData.amount, user_id, newData.category_id, newMonth]
+                );
             }
-        });
-        
-        const adherencePercentage = totalCategories === 0
-            ? 100
-            : (adherenceScore / totalCategories) * 100;
-        
-        const adherenceWeighted = adherencePercentage * 0.3; // 30% weight
+        }
 
-        // --- Frequency of usage ---
-        const freqResult = await DB.query(
-            `SELECT COUNT(DISTINCT DATE(date_of_txn)) as active_days
-             FROM expenses
-             WHERE user_id = ? AND DATE_FORMAT(date_of_txn, '%Y-%m-01') = ?;`,
-            [user_id, month]
-        );
-        const activeDays = freqResult[0]?.active_days || 0;
-        const frequencyPercentage = (activeDays / daysInMonth) * 100;
-        const frequencyWeighted = frequencyPercentage * 0.3; // 30% weight
+        else if (action_type === 'delete') {
+            const { expense_id, amount, category_id, date } = data;
+            const month = date.slice(0, 7) + '-01';
 
-        // --- Expense tracking discipline ---
-        const disciplineResult = await DB.query(
-            `SELECT DATE(date_of_txn) as txn_date, DATE(timestamp) as log_date
-            FROM expenses
-            WHERE user_id = ? AND DATE_FORMAT(date_of_txn, '%Y-%m-01') = ?;`,
-            [user_id, month]
-        );
+            // Reinsert expense (notes might not be tracked, set as empty or add to payload if needed)
+            await DB.query(
+                `INSERT INTO expenses (id, user_id, category_id, amount, notes, date_of_txn, timestamp)
+                 VALUES (?, ?, ?, ?, '', ?, CURRENT_TIMESTAMP);`,
+                [expense_id, user_id, category_id, amount, date]
+            );
 
-        const uniqueDaysMap = new Map();
+            await DB.query(
+                `UPDATE monthly_expense
+                 SET expenditure = expenditure + ?
+                 WHERE user_id = ? AND category_id = ? AND month = ?;`,
+                [amount, user_id, category_id, month]
+            );
+        }
 
-        disciplineResult.forEach(row => {
-            const txnDate = row.txn_date;
-            const logDate = row.log_date;
-
-            // Only count once per txn day
-            if (!uniqueDaysMap.has(txnDate)) {
-                uniqueDaysMap.set(txnDate, logDate > txnDate ? 'delayed' : 'on-time');
-            }
-        });
-
-        const totalTrackedDays = uniqueDaysMap.size;
-        const delayedDays = Array.from(uniqueDaysMap.values()).filter(status => status === 'delayed').length;
-
-        const disciplinePercentage = totalTrackedDays === 0
-            ? 0
-            : ((totalTrackedDays - delayedDays) / totalTrackedDays) * 100;
-
-        const disciplineWeighted = disciplinePercentage * 0.4; // 40% weight
-
-        const finalScore = Math.round(adherenceWeighted + frequencyWeighted + disciplineWeighted);
+        // Clear the last action
+        await DB.query(`DELETE FROM last_user_action WHERE user_id = ?;`, [user_id]);
 
         DB.close();
 
         return res.status(200).json({
             success: true,
-            month,
-            score: finalScore,
-            breakdown: {
-                adherence: Math.round(adherencePercentage),
-                frequency: Math.round(frequencyPercentage),
-                discipline: Math.round(disciplinePercentage)
-            }
+            message: `Successfully reversed last '${action_type}' action`
         });
 
     } catch (err) {
         logger.error(err.stack);
         return res.status(500).json({
             success: false,
-            message: 'Internal server error'
+            message: 'Failed to reverse last action'
         });
     }
 };
@@ -495,6 +494,5 @@ module.exports = {
     postExpense,
     putExpense,
     deleteExpense,
-    getBudgetSummary,
-    getUserBehaviorScore
+    reverseLastAction
 };

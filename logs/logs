@@ -477,3 +477,29 @@
 4/7/2025, 4:53:34 AM [INFO] Server starting on port 3000
 4/7/2025, 4:53:36 AM [INFO] [::1] [Bearer eyJ..]: [PATCH] /api/expenses - {"amount":1250.75,"notes":"Bus ride to airport","date":"2025-04-07"}}
 4/7/2025, 4:53:36 AM [INFO] DBC: 0
+4/7/2025, 10:25:38 AM [INFO] Server starting on port 3000
+4/7/2025, 10:25:42 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/score}
+4/7/2025, 10:25:42 AM [INFO] DBC: 0
+4/7/2025, 10:25:49 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/summary}
+4/7/2025, 10:25:49 AM [INFO] DBC: 0
+4/7/2025, 10:36:00 AM [INFO] Server starting on port 3000
+4/7/2025, 10:38:52 AM [INFO] Server starting on port 3000
+4/7/2025, 10:45:52 AM [INFO] [::1] [NULL]: [POST] /api/register
+4/7/2025, 10:45:52 AM [INFO] DBC: 0
+4/7/2025, 10:46:14 AM [INFO] [::1] [NULL]: [POST] /api/verify
+4/7/2025, 10:46:14 AM [INFO] DBC: 0
+4/7/2025, 10:46:22 AM [INFO] [::1] [NULL]: [POST] /api/login
+4/7/2025, 10:46:22 AM [INFO] DBC: 0
+4/7/2025, 10:46:26 AM [INFO] Logged in user_id: 7
+4/7/2025, 10:47:03 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/expenses}
+4/7/2025, 10:47:03 AM [INFO] DBC: 1
+4/7/2025, 10:48:12 AM [INFO] [::1] [Bearer eyJ..]: [POST] /api/expenses - {"amount":1250.75,"notes":"Bus ride to airport","date":"2025-04-07"}}
+4/7/2025, 10:48:12 AM [INFO] DBC: 1
+4/7/2025, 10:51:50 AM [INFO] [::1] [Bearer eyJ..]: [GET] /api/reverseLastAction}
+4/7/2025, 10:51:50 AM [INFO] DBC: 1
+4/7/2025, 10:53:13 AM [INFO] [::1] [Bearer eyJ..]: [POST] /api/expenses - {"amount":1250.75,"notes":"Bus ride to airport","date":"2025-04-07"}}
+4/7/2025, 10:53:13 AM [INFO] DBC: 1
+4/7/2025, 10:54:16 AM [INFO] [::1] [Bearer eyJ..]: [PUT] /api/expenses - {"expense_id":6,"amount":1020.5,"notes":"Gym membership renewal","date":"2025-04-07"}}
+4/7/2025, 10:54:16 AM [INFO] DBC: 1
+4/7/2025, 10:54:50 AM [INFO] [::1] [Bearer eyJ..]: [PUT] /api/expenses - {"expense_id":6,"amount":1020.5,"notes":"Gym membership renewal","date":"2025-04-07"}}
+4/7/2025, 10:54:50 AM [INFO] DBC: 1
