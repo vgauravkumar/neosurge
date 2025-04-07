@@ -24,7 +24,7 @@ A backend system built with **Node.js (Express.js)** and **PostgreSQL** to help 
 ## 📦 Tech Stack
 
 - **Backend:** Node.js, Express.js
-- **Database:** PostgreSQL
+- **Database:** MySQL
 - **ORM:** Sequelize
 - **Auth:** JWT, OTP (simulated)
 - **Job Scheduler:** Node-cron
@@ -43,23 +43,7 @@ A backend system built with **Node.js (Express.js)** and **PostgreSQL** to help 
 
 npm install
 
-
-	3.	Setup .env File
-
-PORT=3000
-DB_HOST=localhost
-DB_USER=your_db_user
-DB_PASS=your_db_password
-DB_NAME=finance_tracker
-JWT_SECRET=your_jwt_secret
-
-
-	4.	Run Database Migrations
-
-npx sequelize db:migrate
-
-
-	5.	Start the Server
+	3.	Start the Server
 
 npm run dev
 
