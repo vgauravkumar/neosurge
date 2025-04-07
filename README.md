@@ -153,17 +153,8 @@ A mock notification is sent via JSON to a simulated endpoint.
 
 📂 Folder Structure
 
-src/
-│
-├── controllers/
-├── services/
-├── models/
-├── routes/
-├── middlewares/
-├── jobs/               # Notification engine (cron)
-├── utils/              # OTP mock, scoring logic
-├── config/
-└── app.js
+<img width="198" alt="image" src="https://github.com/user-attachments/assets/69d3dd16-5df9-4cab-8eeb-4131bb1da026" />
+
 
 
 
