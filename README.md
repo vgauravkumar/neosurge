@@ -170,15 +170,7 @@ src/
 ⸻
 
 🧪 API Documentation
-	•	Swagger available at: http://localhost:3000/api-docs
 	•	Postman collection: Download here
-
-⸻
-
-🎥 Walkthrough Video
-
-📹 walkthrough.mp4 included in repo
-Explains architecture, folder structure, API flow, and scoring logic.
 
 ⸻
 
