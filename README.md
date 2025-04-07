@@ -36,8 +36,8 @@ A backend system built with **Node.js (Express.js)** and **PostgreSQL** to help 
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/yourusername/finance-tracker-api.git
-   cd finance-tracker-api
+   git clone https://github.com/vgauravkumar/neosurge
+   cd neosurge
 
 	2.	Install Dependencies
 
@@ -183,9 +183,7 @@ Explains architecture, folder structure, API flow, and scoring logic.
 ⸻
 
 📘 Other Files
-	•	design_notes.md: Detailed architecture, DB schema, and scoring logic.
-	•	postman_collection.json: Import into Postman to test all endpoints.
-	•	.env.example: Sample config file.
+	•	Postman: https://documenter.getpostman.com/view/16919567/2sB2cVdLvB
 
 ⸻
 
